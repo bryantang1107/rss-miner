@@ -1,0 +1,15 @@
+version: '3.8'  # Use the latest stable version
+
+services:
+  db:
+    image: postgres
+    container_name: rss-miner
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      #default DB 
+      - POSTGRES_DB=${DB_NAME}
